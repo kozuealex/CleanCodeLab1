@@ -42,15 +42,24 @@ public class Game {
 
     public int findAliveCells(int x, int y) {
         int aliveCells = 0;
-        aliveCells += board[x - 1][y - 1];
-        aliveCells += board[x][y - 1];
-        aliveCells += board[x + 1][y - 1];
-        aliveCells += board[x - 1][y];
-        aliveCells += board[x + 1][y];
-        aliveCells += board[x - 1][y + 1];
-        aliveCells += board[x][y + 1];
-        aliveCells += board[x + 1][y + 1];
+        aliveCells += checkState(x - 1,y - 1);
+        aliveCells += checkState(x,y - 1);
+        aliveCells += checkState(x + 1,y - 1);
+        aliveCells += checkState(x - 1,y);
+        aliveCells += checkState(x + 1,y);
+        aliveCells += checkState(x - 1,y + 1);
+        aliveCells += checkState(x,y + 1);
+        aliveCells += checkState(x + 1,y + 1);
         return aliveCells;
     }
 
+    public int checkState(int x, int y) {
+        if (x < 0 || x >= width) {
+            return 0;
+        }
+        if (y < 0 || y >= height) {
+            return 0;
+        }
+        return board[x][y];
+    }
 }

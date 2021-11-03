@@ -16,7 +16,7 @@ public class Main {
         simulation2.printBoard();
         System.out.println(simulation2.findAliveCells(2, 2));
         System.out.println(simulation2.findAliveCells(3, 2));
-        // System.out.println(simulation2.findAliveCells(0, 0));
+        System.out.println(simulation2.findAliveCells(0, 0));
         System.out.println(simulation2.findAliveCells(5, 2) + "\n");
 
     }

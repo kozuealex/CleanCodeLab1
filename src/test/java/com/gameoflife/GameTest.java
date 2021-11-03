@@ -50,11 +50,20 @@ class GameTest {
         assertEquals(0, cell3);
     }
 
+    /*
     @Test
-    void findAliveCellsWillThrowArrayIndexOutOfBoundsExceptionForEdgeCase() {
+    void findAliveCellsWillThrowArrayIndexOutOfBoundsExceptionForEdgeCases() {
         Game testSimulation = new Game(8, 4);
         assertThrows(ArrayIndexOutOfBoundsException.class, () ->
                 testSimulation.findAliveCells(0, 0));
+    }
+    */
+
+    @Test
+    void supportEdgeCasesWithCheckState() {
+        Game testSimulation = new Game(8, 4);
+        int cell = testSimulation.checkState(0, 0);
+        assertEquals(0, cell);
     }
 
 }
