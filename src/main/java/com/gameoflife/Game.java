@@ -40,4 +40,17 @@ public class Game {
         return this.board[x][y];
     }
 
+    public int findAliveCells(int x, int y) {
+        int aliveCells = 0;
+        aliveCells += board[x - 1][y - 1];
+        aliveCells += board[x][y - 1];
+        aliveCells += board[x + 1][y - 1];
+        aliveCells += board[x - 1][y];
+        aliveCells += board[x + 1][y];
+        aliveCells += board[x - 1][y + 1];
+        aliveCells += board[x][y + 1];
+        aliveCells += board[x + 1][y + 1];
+        return aliveCells;
+    }
+
 }

@@ -37,5 +37,18 @@ class GameTest {
         });
     }
 
+    @Test
+    void findAliveCellsWillCountNeighboringAliveCells() {
+        Game testSimulation = new Game(8, 4);
+        testSimulation.setAliveCell(1, 2);
+        testSimulation.setAliveCell(2, 2);
+        testSimulation.setAliveCell(3, 2);
+        int cell1 = testSimulation.findAliveCells(2,2);
+        int cell2 = testSimulation.findAliveCells(3,2);
+        int cell3 = testSimulation.findAliveCells(5,2);
+        assertEquals(2, cell1);
+        assertEquals(1, cell2);
+        assertEquals(0, cell3);
+    }
 
 }
