@@ -32,9 +32,8 @@ class GameTest {
     @Test
     void setAliveCellWillThrowArrayIndexOutOfBoundsException() {
         Game testSimulation = new Game(8, 4);
-        assertThrows(ArrayIndexOutOfBoundsException.class, () -> {
-            testSimulation.setAliveCell(8, 4);
-        });
+        assertThrows(ArrayIndexOutOfBoundsException.class, () ->
+            testSimulation.setAliveCell(8, 4));
     }
 
     @Test
@@ -54,9 +53,8 @@ class GameTest {
     @Test
     void findAliveCellsWillThrowArrayIndexOutOfBoundsExceptionForEdgeCase() {
         Game testSimulation = new Game(8, 4);
-        assertThrows(ArrayIndexOutOfBoundsException.class, () -> {
-            testSimulation.findAliveCells(0, 0);
-        });
+        assertThrows(ArrayIndexOutOfBoundsException.class, () ->
+                testSimulation.findAliveCells(0, 0));
     }
 
 }
