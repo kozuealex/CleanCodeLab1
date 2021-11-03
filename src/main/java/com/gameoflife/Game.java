@@ -31,4 +31,13 @@ public class Game {
         return true;
     }
 
+    public void setAliveCell(int x, int y) {
+        this.board[x][y] = 1;
+    }
+
+    // For testing purpose
+    public int getCellStatus(int x, int y) {
+        return this.board[x][y];
+    }
+
 }
