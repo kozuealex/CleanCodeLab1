@@ -29,5 +29,13 @@ class GameTest {
         assertEquals(1, cell);
     }
 
+    @Test
+    void setAliveCellWillThrowArrayIndexOutOfBoundsException() {
+        assertThrows(ArrayIndexOutOfBoundsException.class, () -> {
+            Game testSimulation = new Game(8, 4);
+            testSimulation.setAliveCell(8, 4);
+        });
+    }
+
 
 }

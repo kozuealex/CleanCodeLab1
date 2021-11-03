@@ -8,6 +8,7 @@ public class Main {
         simulation.setAliveCell(3, 3);
         System.out.println(simulation.getCellStatus(3, 3) + "\n");
         simulation.printBoard();
+        // simulation.setAliveCell(8, 4);
 
     }
 }
