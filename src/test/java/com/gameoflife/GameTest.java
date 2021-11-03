@@ -14,4 +14,11 @@ class GameTest {
         });
     }
 
+    @Test
+    void printBoardWillMakeAGrid() {
+        Game testSimulation1 = new Game(8, 4);
+        boolean test = testSimulation1.printBoard();
+        assertTrue(test);
+    }
+
 }

@@ -15,4 +15,20 @@ public class Game {
         this.board = new int[width][height];
     }
 
+    public boolean printBoard() {
+        for (int y = 0; y < height; y++) {
+            StringBuilder mark = new StringBuilder();
+            for (int x = 0; x < width; x++) {
+                if (this.board[x][y] == 0) {
+                    mark.append(".");
+                } else {
+                    mark.append("*");
+                }
+            }
+            System.out.println(mark);
+        }
+        System.out.println("\n");
+        return true;
+    }
+
 }
