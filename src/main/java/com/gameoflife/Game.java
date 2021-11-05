@@ -15,6 +15,10 @@ public class Game {
         this.board = new int[width][height];
     }
 
+    public int[][] getBoard() {
+        return board;
+    }
+
     public boolean printBoard() {
         for (int y = 0; y < height; y++) {
             StringBuilder mark = new StringBuilder();

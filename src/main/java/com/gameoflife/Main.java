@@ -26,5 +26,18 @@ public class Main {
         simulation3.printBoard();
         simulation3.nextGeneration();
         simulation3.printBoard();
+
+        Game simulation4 = new Game(8, 4);
+        simulation4.setAliveCell(2, 2);
+        simulation4.setAliveCell(3, 1);
+        simulation4.setAliveCell(3, 2);
+        simulation4.setAliveCell(3, 3);
+        simulation4.printBoard();
+        simulation4.nextGeneration();
+        simulation4.printBoard();
+        simulation4.nextGeneration();
+        simulation4.printBoard();
+        simulation4.nextGeneration();
+        simulation4.printBoard();
     }
 }

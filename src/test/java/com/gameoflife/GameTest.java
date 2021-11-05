@@ -62,5 +62,38 @@ class GameTest {
         testSimulation.nextGeneration();
         int cell = testSimulation.getCellStatus(3, 1);
         assertEquals(1, cell);
+        int[][] expected = {
+                {0, 0, 0, 0},
+                {0, 0, 0, 0},
+                {0, 0, 0, 0},
+                {0, 1, 1, 0},
+                {0, 1, 1, 0},
+                {0, 0, 0, 0},
+                {0, 0, 0, 0},
+                {0, 0, 0, 0}
+        };
+        int[][] actual = testSimulation.getBoard();
+        assertArrayEquals(expected, actual);
+    }
+
+    @Test
+    void nextGenerationWillCreateNextBoard2() {
+        testSimulation.setAliveCell(2, 2);
+        testSimulation.setAliveCell(3, 2);
+        testSimulation.setAliveCell(3, 3);
+        testSimulation.setAliveCell(3, 1);
+        testSimulation.nextGeneration();
+        int[][] expected = {
+                {0, 0, 0, 0},
+                {0, 0, 0, 0},
+                {0, 1, 1, 1},
+                {0, 1, 1, 1},
+                {0, 0, 1, 0},
+                {0, 0, 0, 0},
+                {0, 0, 0, 0},
+                {0, 0, 0, 0}
+        };
+        int[][] actual = testSimulation.getBoard();
+        assertArrayEquals(expected, actual);
     }
 }
