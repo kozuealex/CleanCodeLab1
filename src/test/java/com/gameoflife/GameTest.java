@@ -36,13 +36,13 @@ class GameTest {
     }
 
     @Test
-    void findAliveCellsWillCountNeighboringAliveCells() {
+    void findAliveCellsAroundWillCountNeighboringAliveCells() {
         testSimulation.setAliveCell(1, 2);
         testSimulation.setAliveCell(2, 2);
         testSimulation.setAliveCell(3, 2);
-        int cell1 = testSimulation.findAliveCells(2,2);
-        int cell2 = testSimulation.findAliveCells(3,2);
-        int cell3 = testSimulation.findAliveCells(5,2);
+        int cell1 = testSimulation.findAliveCellsAround(2, 2);
+        int cell2 = testSimulation.findAliveCellsAround(3, 2);
+        int cell3 = testSimulation.findAliveCellsAround(5, 2);
         assertEquals(2, cell1);
         assertEquals(1, cell2);
         assertEquals(0, cell3);
@@ -54,4 +54,13 @@ class GameTest {
         assertEquals(0, cell);
     }
 
+    @Test
+    void nextGenerationWillCreateNextBoard() {
+        testSimulation.setAliveCell(3, 2);
+        testSimulation.setAliveCell(4, 1);
+        testSimulation.setAliveCell(4, 2);
+        testSimulation.nextGeneration();
+        int cell = testSimulation.getCellStatus(3, 1);
+        assertEquals(1, cell);
+    }
 }

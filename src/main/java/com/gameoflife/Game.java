@@ -39,16 +39,16 @@ public class Game {
         return this.board[x][y];
     }
 
-    public int findAliveCells(int x, int y) {
+    public int findAliveCellsAround(int x, int y) {
         int aliveCells = 0;
-        aliveCells += checkState(x - 1,y - 1);
-        aliveCells += checkState(x,y - 1);
-        aliveCells += checkState(x + 1,y - 1);
-        aliveCells += checkState(x - 1,y);
-        aliveCells += checkState(x + 1,y);
-        aliveCells += checkState(x - 1,y + 1);
-        aliveCells += checkState(x,y + 1);
-        aliveCells += checkState(x + 1,y + 1);
+        aliveCells += checkState(x - 1, y - 1);
+        aliveCells += checkState(x, y - 1);
+        aliveCells += checkState(x + 1, y - 1);
+        aliveCells += checkState(x - 1, y);
+        aliveCells += checkState(x + 1, y);
+        aliveCells += checkState(x - 1, y + 1);
+        aliveCells += checkState(x, y + 1);
+        aliveCells += checkState(x + 1, y + 1);
         return aliveCells;
     }
 
@@ -60,5 +60,28 @@ public class Game {
             return 0;
         }
         return board[x][y];
+    }
+
+    public void nextGeneration() {
+        int[][] nextGen = new int[width][height];
+        for (int y = 0; y < height; y++) {
+            for (int x = 0; x < width; x++) {
+                int aliveNeighbors = findAliveCellsAround(x, y);
+                if (checkState(x, y) == 1) {
+                    if (aliveNeighbors < 2) {
+                        nextGen[x][y] = 0;
+                    } else if (aliveNeighbors > 3) {
+                        nextGen[x][y] = 0;
+                    } else {
+                        nextGen[x][y] = 1;
+                    }
+                } else {
+                    if (aliveNeighbors == 3) {
+                        nextGen[x][y] = 1;
+                    }
+                }
+            }
+        }
+        this.board = nextGen;
     }
 }
