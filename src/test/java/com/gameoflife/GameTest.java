@@ -6,6 +6,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class GameTest {
 
+    Game testSimulation = new Game(8, 4);
+
     @Test
     void constructorWillThrowIllegalArgumentException() {
         assertThrows(IllegalArgumentException.class, () -> {
@@ -16,14 +18,12 @@ class GameTest {
 
     @Test
     void printBoardWillMakeAGrid() {
-        Game testSimulation = new Game(8, 4);
         boolean test = testSimulation.printBoard();
         assertTrue(test);
     }
 
     @Test
     void setAliveCellReturns1() {
-        Game testSimulation = new Game(8, 4);
         testSimulation.setAliveCell(3, 3);
         int cell = testSimulation.getCellStatus(3, 3);
         assertEquals(1, cell);
@@ -31,14 +31,12 @@ class GameTest {
 
     @Test
     void setAliveCellWillThrowArrayIndexOutOfBoundsException() {
-        Game testSimulation = new Game(8, 4);
         assertThrows(ArrayIndexOutOfBoundsException.class, () ->
             testSimulation.setAliveCell(8, 4));
     }
 
     @Test
     void findAliveCellsWillCountNeighboringAliveCells() {
-        Game testSimulation = new Game(8, 4);
         testSimulation.setAliveCell(1, 2);
         testSimulation.setAliveCell(2, 2);
         testSimulation.setAliveCell(3, 2);
@@ -50,18 +48,8 @@ class GameTest {
         assertEquals(0, cell3);
     }
 
-    /*
-    @Test
-    void findAliveCellsWillThrowArrayIndexOutOfBoundsExceptionForEdgeCases() {
-        Game testSimulation = new Game(8, 4);
-        assertThrows(ArrayIndexOutOfBoundsException.class, () ->
-                testSimulation.findAliveCells(0, 0));
-    }
-    */
-
     @Test
     void supportEdgeCasesWithCheckState() {
-        Game testSimulation = new Game(8, 4);
         int cell = testSimulation.checkState(0, 0);
         assertEquals(0, cell);
     }
